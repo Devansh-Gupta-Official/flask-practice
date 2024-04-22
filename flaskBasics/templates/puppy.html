@@ -4,5 +4,9 @@
 
 <!-- using filters -->
 <h1>This is the puppy page for {{name|capitalize}}</h1>    
+
+<!-- using url_for to link static files -->
+<a href="{{url_for ('static',filename='puppy_pic.jpg')}}">Puppy Image</a> 
+
 <h2>Go to /puppy/home for home page</h2>
 {% endblock %}
