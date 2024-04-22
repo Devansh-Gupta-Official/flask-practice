@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Web Page</title>
+</head>
+<body>
+    <!-- <h1>Welcome to the site!</h1>    
+    <h2>Here is a pic of a puppy!</h2>
+    <img src="../static/puppy_pic.jpg" alt=""> -->
+    <!-- started using template variables -->
+    <h1>Hello! {{name}}</h1>
+    <h1>{{letters}}</h1>
+    <h1>First Letter is {{letters[0]}}</h1>
+    <h1>Some Letters are {{letters[2:4]}}</h1>
+    <h1>{{name_dict}}</h1>
+    <h1>{{name_dict['name']}}</h1>
+    
+    <!-- using for statement for template control flow -->
+    <ul>
+        {% for item in letters %}
+        <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- using if statement for template control flow -->
+    {% if 'D' in letters %}
+    <p>There is a D in your name</p>
+    {% else %}
+    <p>No D</p>
+    {%endif%}
+</body>
+</html>
