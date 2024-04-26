@@ -7,14 +7,15 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mykey'
 
 class SimpleForm(FlaskForm):
+    breed = StringField("What is your breed? ")
     submit = SubmitField("Click me!")
 
 @app.route('/',methods=['GET','POST'])
 def index():
     form=SimpleForm()
     if form.validate_on_submit():
-        flash("You just clicked the button!")             #using flash alerts
-        flash("Hello I love volleyball!")             #using flash alerts
+        session['breed'] = form.breed.data
+        flash(f"You just changed your breed to: {session['breed']}")             #using flash alerts
         return redirect(url_for('index'))
 
     return render_template('8_index.html',form=form)
