@@ -13,6 +13,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db=SQLAlchemy(app)
 
+#setup context **IMPORTANT**
+app.app_context().push()
+
 
 #creating a model
 class Puppy(db.Model):
