@@ -12,6 +12,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 Migrate(app,db)
+#setup context **IMPORTANT**
+app.app_context().push()
 
 class Puppy(db.Model):
     __tablename__ = 'puppies'
