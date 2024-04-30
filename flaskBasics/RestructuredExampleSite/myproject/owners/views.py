@@ -4,7 +4,7 @@ from myproject.models import Owner
 from myproject.owners.forms import AddForm
 
 #creating blueprint
-owner_blueprints = Blueprint('owners',__name__,template_folder='templates\owners')
+owner_blueprints = Blueprint('owners',__name__,template_folder='templates/owners')
 
 #view for adding an owner
 @owner_blueprints.route('/add',methods=['GET','POST'])
