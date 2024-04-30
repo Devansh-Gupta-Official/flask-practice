@@ -17,3 +17,11 @@ Migrate(app,db)
 #setup context **IMPORTANT**
 app.app_context().push()
 
+from myproject.puppies.views import puppies_blueprint
+from myproject.owners.views import owner_blueprints
+
+app.register_blueprint(owner_blueprints,url_prefix=('/owners'))
+app.register_blueprint(puppies_blueprint,url_prefix=('/puppies'))
+
+
+
