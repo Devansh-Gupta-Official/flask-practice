@@ -11,7 +11,14 @@
 </head>
 <body>
     <ul class="nav">
-        <li class="nav-link" href="{{url_for('home')}}">Home</li>
+        <li class="nav-link"><a href="{{url_for('home')}}"></a>Home</li>
+        <!-- here current_user is gotten from models.py where we load user using a function -->
+        {%if current_user.is_authenticated%}    
+        <li class="nav-link"><a href="{{url_for('logout')}}"></a>Logout</li>
+        {%else%}
+        <li class="nav-link"><a href="{{url_for('login')}}"></a>Login</li>
+        <li class="nav-link"><a href="{{url_for('register')}}"></a>Register</li>
+        {%endif%}
     </ul>
 
     {% block content %}
