@@ -18,3 +18,24 @@ app.register_blueprint(blueprint,url_prefix='/login')   #registering the bluepri
 def index():
     return render_template('home.html')
 
+@app.route('/welcome')
+def welcome():
+    #return internal server error if not logged in
+    resp = google.get('/oauth2/v1/userinfo')
+    assert resp.ok, resp.text   #wont assert if the response is not ok
+    email = resp.json()['email']
+    return render_template('welcome.html',email=email)
+
+@app.route('/login/google')
+def login():
+    if not google.authorized:   #google was imported from flask_dance.contrib.google
+        return render_template(url_for('google.login'))   #redirecting to google login page
+    
+    resp = google.get('/oauth2/v1/userinfo')
+    assert resp.ok, resp.text
+    email = resp.json()['email']
+
+    return render_template('welcome.html', email=email)
+
+
+
