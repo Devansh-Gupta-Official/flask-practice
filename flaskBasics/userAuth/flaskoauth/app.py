@@ -9,12 +9,12 @@ from flask_dance.contrib.google import make_google_blueprint, google
 
 app=Flask(__name__)
 
-client_id = os.environ.get('GOOGLE_CLIENT_ID')
-client_secret = os.environ.get('GOOGLE_CLIENT_SECRET')
+google_client_id = os.environ.get('GOOGLE_CLIENT_ID')
+google_client_secret = os.environ.get('GOOGLE_CLIENT_SECRET')
 
 app.config['SECRET_KEY'] = "mysecretkey"
 
-blueprint=make_google_blueprint(client_id=client_id, client_secret=client_secret, offline=True, scope=['profile', 'email'])    #scope is a list we want back which is a list of profile and email
+blueprint=make_google_blueprint(client_id=google_client_id, client_secret=google_client_secret, offline=True, scope=['profile', 'email'])    #scope is a list we want back which is a list of profile and email
 
 app.register_blueprint(blueprint,url_prefix='/login')   #registering the blueprint with the app
 
