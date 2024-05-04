@@ -1,6 +1,9 @@
 #also add http://localhost:5000/login/google/authorized and http://127.0.0.1:5000/login/google/authorized to the authorized redirect URIs in the google cloud console
 
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'   #setting environment variables as we are running oauth locally
 
@@ -44,5 +47,3 @@ def login():
 
 if __name__ == '__main__':
     app.run()   #no debug mode
-
-
