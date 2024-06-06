@@ -14,7 +14,7 @@
         <h2>Would you like to donate?</h2>
 
         <form action="{{url_for('payment')}}" method="POST">
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key={{public_key}} data-amount="1999" data-name="Puppy Donation" data-description="Donation" data-locale="auto" data-zip-code="true">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key={{public_key}} data-amount="1999" data-name="Puppy Donation" data-description="Donation" data-image = "https://images.unsplash.com/photo-1599709606362-2078844247fc?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=xuan-nguyen-zr0beNrnvgQ-unsplash.jpg" data-locale="auto" data-zip-code="true">
             </script>
         </form>
     </div>
